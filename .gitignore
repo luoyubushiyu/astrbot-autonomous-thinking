@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# 运行数据与本地配置
+data/
+logs/
+autonomous_thinking/
+config.json
+*.db
+*.db-shm
+*.db-wal
+*.log
+
+# 杂项
+.DS_Store
+Thumbs.db

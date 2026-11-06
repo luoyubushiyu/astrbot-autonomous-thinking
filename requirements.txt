@@ -1,0 +1,11 @@
+# 第一阶段（基础工程骨架）没有任何第三方运行时依赖，只用 Python 标准库。
+#
+# 运行：
+#   python -m autonomous_agent.main
+#
+# 测试（二选一，pytest 不是必需的）：
+#   python -m unittest discover -s autonomous_agent/tests -t .
+#   python -m pytest autonomous_agent/tests
+#
+# 如果要用 pytest，取消下面一行的注释：
+# pytest>=7.4

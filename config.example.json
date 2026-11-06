@@ -1,0 +1,185 @@
+{
+  "database": {
+    "path": "data/agent.db",
+    "busy_timeout_ms": 5000,
+    "store_events": true,
+    "event_retention_days": 30,
+    "metrics_retention_days": 90
+  },
+  "llm": {
+    "provider": "mock",
+    "base_url": "https://api.deepseek.com/v1",
+    "api_key": "",
+    "model": "deepseek-chat",
+    "request_timeout_seconds": 30.0,
+    "temperature": 0.7,
+    "max_output_tokens": 512,
+    "json_mode": true,
+    "extra_headers": {}
+  },
+  "budget": {
+    "max_daily_tokens": 0,
+    "state_file": ""
+  },
+  "qq": {
+    "adapter": "mock",
+    "self_id": "bot-1",
+    "poll_interval_seconds": 1.0,
+    "enabled": false
+  },
+  "scheduler": {
+    "enabled": false,
+    "autonomous_tick_seconds": 300.0,
+    "active_tick_seconds": 60.0,
+    "max_wait_seconds": 3600,
+    "safe_idle_alert_seconds": 0.0
+  },
+  "behavior": {
+    "allowed_actions": [
+      "DO_NOTHING",
+      "SEND_MESSAGE",
+      "WAIT",
+      "ENTER_SILENT",
+      "THINK"
+    ],
+    "max_message_chars": 500,
+    "min_seconds_between_messages": 3.0,
+    "quiet_hours": [
+      "23:30-07:30"
+    ],
+    "quiet_blocks_send_message": true,
+    "allow_send_on_autonomous_tick": false,
+    "max_silent_minutes": 720
+  },
+  "thought": {
+    "enabled": true,
+    "workspace_dir": "autonomous_thinking",
+    "max_active_thoughts": 200,
+    "max_thoughts": 500,
+    "max_new_questions": 3,
+    "from_user_messages": true,
+    "history_limit": 8,
+    "memory_limit": 5,
+    "w_importance": 1.0,
+    "w_curiosity": 0.8,
+    "w_relevance": 0.6,
+    "w_novelty": 0.3,
+    "w_unresolved": 0.5,
+    "w_relationship": 0.2,
+    "w_future": 0.2,
+    "w_time_suitability": 0.15,
+    "penalty_repetition": 0.4,
+    "penalty_stale": 0.6,
+    "penalty_cost": 0.1,
+    "novelty_revisits": 2,
+    "stale_days": 7.0,
+    "forget_after_days": 30.0,
+    "forget_inactivity_days": 14.0,
+    "forget_threshold": 1.1,
+    "reactivation_threshold": 0.35,
+    "reactivation_cooldown_seconds": 3600.0,
+    "max_reactivations": 3,
+    "maintenance_every_ticks": 10,
+    "max_thought_depth": 3,
+    "max_followups_per_thought": 3,
+    "continue_think_minutes": 3.0,
+    "thinking_text_max_chars": 8000,
+    "history_keep_turns": 6
+  },
+  "memory": {
+    "enabled": true,
+    "retrieval_limit": 5,
+    "duplicate_threshold": 0.9,
+    "max_memories": 2000,
+    "max_candidates_per_think": 3,
+    "w_importance": 1.0,
+    "w_confidence": 0.9,
+    "w_relevance": 0.6,
+    "w_future": 0.3,
+    "w_relationship": 0.2,
+    "penalty_stale": 0.5,
+    "penalty_duplicate": 0.3,
+    "penalty_low_confidence": 0.3,
+    "stale_days": 45.0,
+    "low_value_threshold": 0.12,
+    "soft_delete_threshold": 0.07,
+    "expire_threshold": 0.03,
+    "consolidate_threshold": 0.92,
+    "consolidate_every_ticks": 20,
+    "reactivate_threshold": 0.45,
+    "reactivate_min_value": 0.05,
+    "max_reactivations": 2,
+    "reactivation_cooldown_seconds": 3600.0
+  },
+  "topic": {
+    "enabled": true,
+    "duplicate_threshold": 0.8,
+    "min_importance_to_create": 0.55,
+    "w_recency": 0.5,
+    "w_activity": 0.3,
+    "w_importance": 0.2,
+    "low_activity_days": 3.0,
+    "dormant_days": 14.0,
+    "archive_days": 45.0,
+    "max_context_topics": 8
+  },
+  "curiosity": {
+    "enabled": true,
+    "max_curiosity_events_per_tick": 2,
+    "max_new_thoughts_per_tick": 1,
+    "max_reactivation_requests": 1,
+    "max_topic_expansion": 3,
+    "min_score": 0.25,
+    "novelty_days": 14.0,
+    "duplicate_threshold": 0.75,
+    "w_novelty": 0.8,
+    "w_uncertainty": 0.7,
+    "w_importance": 0.9,
+    "w_relevance": 0.5,
+    "w_knowledge_gap": 0.8,
+    "w_future": 0.2,
+    "w_relationship": 0.2,
+    "penalty_repetition": 0.6,
+    "penalty_stale": 0.3,
+    "penalty_cost": 0.1
+  },
+  "contact": {
+    "enabled": true,
+    "hourly_limit": 2,
+    "daily_limit": 6,
+    "minimum_interval_seconds": 1800.0,
+    "consecutive_no_reply_limit": 3,
+    "cooldown_seconds": 600.0,
+    "night_hours": [
+      "23:30-07:30"
+    ],
+    "duplicate_threshold": 0.8,
+    "duplicate_window": 5,
+    "max_attempts_per_thought": 2,
+    "timeout_seconds": 1800.0,
+    "topic_repeat_limit": 2,
+    "topic_repeat_window_minutes": 1440,
+    "anomaly_block_threshold": 5,
+    "anomaly_window_minutes": 60,
+    "silent_after_consecutive": 3,
+    "silent_minutes": 720.0
+  },
+  "emotion": {
+    "enabled": true,
+    "baseline": 0.3,
+    "decay": 0.05,
+    "max_emotion_delta_per_event": 0.15
+  },
+  "diary": {
+    "enabled": true,
+    "max_entry_chars": 2000
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "logs/agent.log",
+    "json_lines": true,
+    "console": true,
+    "max_bytes": 5242880,
+    "backup_count": 3
+  }
+}
