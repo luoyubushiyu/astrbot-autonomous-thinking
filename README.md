@@ -47,7 +47,8 @@ autonomous_agent/
 
 ## 三步跑起来
 
-1. 仓库页面点绿色 **Code** → **Download ZIP**
+1. 下载：仓库页面点绿色 **Code** → **Download ZIP**
+   （或者直接点这个：[下载 main 分支 ZIP](https://github.com/luoyubushiyu/astrbot-autonomous-thinking/archive/refs/heads/main.zip)）
 2. 解压，Windows 双击 `启动.bat`（macOS / Linux 在终端里 `bash start.sh`）
 3. 日志开始滚就是活了：`logs/agent.log` 有输出，`data/agent.db` 自己建好
 
