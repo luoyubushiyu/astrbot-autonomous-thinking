@@ -45,23 +45,31 @@ autonomous_agent/
 └── tests/                  # 275 个测试
 ```
 
-## 环境要求
+## 三步跑起来
 
-- Python 3.11+（开发环境 3.12）
-- 无第三方依赖；`requirements.txt` 里只列了可选的 `pytest`
+1. 仓库页面点绿色 **Code** → **Download ZIP**
+2. 解压，Windows 双击 `启动.bat`（macOS / Linux 在终端里 `bash start.sh`）
+3. 日志开始滚就是活了：`logs/agent.log` 有输出，`data/agent.db` 自己建好
 
-## 快速开始
+不用装依赖（只用 Python 标准库），不用 API key —— 默认 `mock` 模式先把整条环路跑通，
+离线、免费。唯一要求：Python 3.11 或更新（安装时勾上 *Add python.exe to PATH*）。
+
+想换真模型：改 `config.json` 的 `llm` 段，或者设环境变量
+`AGENT_LLM_PROVIDER=deepseek`、`AGENT_LLM_API_KEY=sk-...` 再启动。
+
+只想自检、不常驻：`py -3 -m autonomous_agent --once`。
+
+不用脚本也能跑：
 
 ```bash
 cp config.example.json config.json
-# 至少确认 database.path、llm.provider、qq.adapter、thought.workspace_dir
-
-python -m autonomous_agent --once          # 自检：启动 → 读状态 → 停止
-python -m autonomous_agent --print-config  # 脱敏后打印最终配置
-python -m autonomous_agent                 # 常驻运行
+python -m autonomous_agent
 ```
 
-也可以直接 `python -m autonomous_agent.main --config path/to/config.json`。
+也可以指定配置文件：`python -m autonomous_agent.main --config path/to/config.json`。
+环境变量会覆盖配置，常用项见下面的配置说明。
+
+> 注意：`qq.adapter` 目前只有 `mock`，所以它不会真的收发 QQ 消息，跑的是完整闭环的本地版本。
 
 ## 配置
 
